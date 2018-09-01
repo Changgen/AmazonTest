@@ -1,0 +1,12 @@
+C:\Users\pengc\documents\visual studio 2012\Projects\AmazonTest\Support\bin\Debug\Support.dll
+C:\Users\pengc\documents\visual studio 2012\Projects\AmazonTest\Support\bin\Debug\Support.pdb
+C:\Users\pengc\documents\visual studio 2012\Projects\AmazonTest\Support\bin\Debug\WebDriver.dll
+C:\Users\pengc\documents\visual studio 2012\Projects\AmazonTest\Support\bin\Debug\WebDriver.Support.dll
+C:\Users\pengc\documents\visual studio 2012\Projects\AmazonTest\Support\bin\Debug\WebDriver.xml
+C:\Users\pengc\documents\visual studio 2012\Projects\AmazonTest\Support\bin\Debug\WebDriver.Support.xml
+C:\Users\pengc\documents\visual studio 2012\Projects\AmazonTest\Support\obj\Debug\Support.dll
+C:\Users\pengc\documents\visual studio 2012\Projects\AmazonTest\Support\obj\Debug\Support.pdb
+C:\Users\pengc\Documents\Visual Studio 2012\Projects\AmazonTest\Generic\bin\Debug\Generic.dll
+C:\Users\pengc\Documents\Visual Studio 2012\Projects\AmazonTest\Generic\bin\Debug\Generic.pdb
+C:\Users\pengc\Documents\Visual Studio 2012\Projects\AmazonTest\Generic\obj\Debug\Generic.dll
+C:\Users\pengc\Documents\Visual Studio 2012\Projects\AmazonTest\Generic\obj\Debug\Generic.pdb

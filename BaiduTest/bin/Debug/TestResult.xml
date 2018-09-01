@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\pengc\Desktop\AmazonTest\BaiduTest\bin\Debug\BaiduTest.dll" total="6" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2018-09-01" time="18:44:34">
+  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8922" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Users\pengc\Desktop\AmazonTest\BaiduTest\bin\Debug" machine-name="DESKTOP-JCBV484" user="pengc" user-domain="DESKTOP-JCBV484" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\Users\pengc\Desktop\AmazonTest\BaiduTest\bin\Debug\BaiduTest.dll" executed="True" result="Success" success="True" time="56.959" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="BaiduTest" executed="True" result="Success" success="True" time="56.943" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="TestCase" executed="True" result="Success" success="True" time="56.930" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="SmokeTest" executed="True" result="Success" success="True" time="56.914" asserts="0">
+                <results>
+                  <test-suite type="ParameterizedTest" name="VSTS000002" description="Test search function for baidu" executed="True" result="Success" success="True" time="30.250" asserts="0">
+                    <results>
+                      <test-case name="BaiduTest.TestCase.SmokeTest.VSTS000002(&quot;Proii&quot;)" executed="True" result="Success" success="True" time="11.185" asserts="0" />
+                      <test-case name="BaiduTest.TestCase.SmokeTest.VSTS000002(&quot;Aspen&quot;)" executed="True" result="Success" success="True" time="9.442" asserts="0" />
+                      <test-case name="BaiduTest.TestCase.SmokeTest.VSTS000002(&quot;KBC&quot;)" executed="True" result="Success" success="True" time="9.560" asserts="0" />
+                    </results>
+                  </test-suite>
+                  <test-suite type="ParameterizedTest" name="VSTS000003" description="Test search function for baidu" executed="True" result="Success" success="True" time="26.648" asserts="0">
+                    <results>
+                      <test-case name="BaiduTest.TestCase.SmokeTest.VSTS000003(&quot;Aspen&quot;)" executed="True" result="Success" success="True" time="9.443" asserts="0" />
+                      <test-case name="BaiduTest.TestCase.SmokeTest.VSTS000003(&quot;KBC&quot;)" executed="True" result="Success" success="True" time="8.644" asserts="0" />
+                      <test-case name="BaiduTest.TestCase.SmokeTest.VSTS000003(&quot;Proii&quot;)" executed="True" result="Success" success="True" time="8.524" asserts="0" />
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
