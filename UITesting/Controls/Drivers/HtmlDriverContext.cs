@@ -27,7 +27,7 @@ namespace AutomationTest.UITesting.Controls
         /// <summary>
         /// Timeout of waiting element exist.
         /// </summary>
-        protected int waitTimeout = GlobalSettings.Config.ApplicationActiveTimeout;
+        protected int waitTimeout = GlobalSetting.Config.ApplicationActiveTimeout;
         protected readonly Collection<Exception> exceptions = new Collection<Exception>();
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace AutomationTest.UITesting.Controls
         /// <summary>
         /// Driver to be used to locate and operate element on web.
         /// </summary>
-        protected readonly IWebDriver driver;
+        private readonly IWebDriver driver;
 
         private static HtmlDriverContext driverContext;
         private static readonly object syncObject = new object();
@@ -63,21 +63,29 @@ namespace AutomationTest.UITesting.Controls
             switch (browser)
             {
                 case BrowserType.Chrome:
-                    driver = new ChromeDriver(GlobalSettings.Config.DriverDirectory, SetDriverOptions(ChromeProfile), TimeSpan.FromSeconds(GlobalSettings.Config.LoadingTimeout));
+                    driver = new ChromeDriver(GlobalSetting.Config.DriverDirectory, SetDriverOptions(ChromeProfile), TimeSpan.FromSeconds(GlobalSetting.Config.LoadingTimeout));
                     break;
                 case BrowserType.IE:
-                    driver = new InternetExplorerDriver(GlobalSettings.Config.DriverDirectory, SetDriverOptions(InternetExplorerProfile));
+                    driver = new InternetExplorerDriver(GlobalSetting.Config.DriverDirectory, SetDriverOptions(InternetExplorerProfile));
                     break;
             }
-            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(GlobalSettings.Config.LoadingTimeout);
-            driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(GlobalSettings.Config.AsynchronousJavaScriptTimeout);
+            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(GlobalSetting.Config.LoadingTimeout);
+            driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(GlobalSetting.Config.AsynchronousJavaScriptTimeout);
         
+        }
+
+        protected HtmlDriverContext(IWebDriver driver)
+        {
+            this.driver = driver;
+            this.driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(GlobalSetting.Config.LoadingTimeout);
+            this.driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(GlobalSetting.Config.AsynchronousJavaScriptTimeout);
+
         }
 
         /// <summary>
         /// Get web driver instance.
         /// </summary>
-        protected IWebDriver Driver
+        public IWebDriver Driver
         {
             get
             {
@@ -96,51 +104,51 @@ namespace AutomationTest.UITesting.Controls
                 ChromeOptions options = new ChromeOptions();
 
                 options.AddUserProfilePreference("profile.default_content_settings.popups", 0);
-                options.AddUserProfilePreference("download.default_directory", GlobalSettings.Config.TestResultDirectory);
+                options.AddUserProfilePreference("download.default_directory", GlobalSetting.Config.TestResultDirectory);
                 options.AddUserProfilePreference("download.prompt_for_download", false);
 
                 // if there are any extensions
-                if (GlobalSettings.Config.ChromeExtensions != null)
+                if (GlobalSetting.Config.ChromeExtensions != null)
                 {
                     // loop through all of them
-                    for (var i = 0; i < GlobalSettings.Config.ChromeExtensions.Count; i++)
+                    for (var i = 0; i < GlobalSetting.Config.ChromeExtensions.Count; i++)
                     {
-                        options.AddExtension(GlobalSettings.Config.ChromeExtensions.GetKey(i));
+                        options.AddExtension(GlobalSetting.Config.ChromeExtensions.GetKey(i));
                     }
                 }
 
                 //options.AddArgument("start-maximized");
                 // if there are any arguments
-                if (GlobalSettings.Config.ChromeArguments != null)
+                if (GlobalSetting.Config.ChromeArguments != null)
                 {
                     // loop through all of them
-                    for (var i = 0; i < GlobalSettings.Config.ChromeArguments.Count; i++)
+                    for (var i = 0; i < GlobalSetting.Config.ChromeArguments.Count; i++)
                     {
-                        options.AddArgument(GlobalSettings.Config.ChromeArguments.GetKey(i));
+                        options.AddArgument(GlobalSetting.Config.ChromeArguments.GetKey(i));
                     }
                 }
 
                 // custom preferences
                 // if there are any settings
-                if (GlobalSettings.Config.ChromePreferences == null)
+                if (GlobalSetting.Config.ChromePreferences == null)
                 {
                     return options;
                 }
 
                 // loop through all of them
-                for (var i = 0; i < GlobalSettings.Config.ChromePreferences.Count; i++)
+                for (var i = 0; i < GlobalSetting.Config.ChromePreferences.Count; i++)
                 {
                     // and verify all of them
-                    switch (GlobalSettings.Config.ChromePreferences[i])
+                    switch (GlobalSetting.Config.ChromePreferences[i])
                     {
                         // if current settings value is "true"
                         case "true":
-                            options.AddUserProfilePreference(GlobalSettings.Config.ChromePreferences.GetKey(i), true);
+                            options.AddUserProfilePreference(GlobalSetting.Config.ChromePreferences.GetKey(i), true);
                             break;
 
                         // if "false"
                         case "false":
-                            options.AddUserProfilePreference(GlobalSettings.Config.ChromePreferences.GetKey(i), false);
+                            options.AddUserProfilePreference(GlobalSetting.Config.ChromePreferences.GetKey(i), false);
                             break;
 
                         // otherwise
@@ -148,13 +156,13 @@ namespace AutomationTest.UITesting.Controls
                             int temp;
 
                             // an attempt to parse current settings value to an integer. Method TryParse returns True if the attempt is successful (the string is integer) or return False (if the string is just a string and cannot be cast to a number)
-                            if (int.TryParse(GlobalSettings.Config.ChromePreferences.Get(i), out temp))
+                            if (int.TryParse(GlobalSetting.Config.ChromePreferences.Get(i), out temp))
                             {
-                                options.AddUserProfilePreference(GlobalSettings.Config.ChromePreferences.GetKey(i), temp);
+                                options.AddUserProfilePreference(GlobalSetting.Config.ChromePreferences.GetKey(i), temp);
                             }
                             else
                             {
-                                options.AddUserProfilePreference(GlobalSettings.Config.ChromePreferences.GetKey(i), GlobalSettings.Config.ChromePreferences[i]);
+                                options.AddUserProfilePreference(GlobalSetting.Config.ChromePreferences.GetKey(i), GlobalSetting.Config.ChromePreferences[i]);
                             }
                             break;
                     }
@@ -175,23 +183,23 @@ namespace AutomationTest.UITesting.Controls
 
                 // custom preferences
                 // if there are any settings
-                if (GlobalSettings.Config.InternetExplorerPreferences == null)
+                if (GlobalSetting.Config.InternetExplorerPreferences == null)
                 {
                     return options;
                 }
 
                 // loop through all of them
-                for (var i = 0; i < GlobalSettings.Config.InternetExplorerPreferences.Count; i++)
+                for (var i = 0; i < GlobalSetting.Config.InternetExplorerPreferences.Count; i++)
                 {
                     // and verify all of them
-                    switch (GlobalSettings.Config.InternetExplorerPreferences.GetKey(i))
+                    switch (GlobalSetting.Config.InternetExplorerPreferences.GetKey(i))
                     {
                         case "EnsureCleanSession":
-                            options.EnsureCleanSession = Convert.ToBoolean(GlobalSettings.Config.InternetExplorerPreferences[i], CultureInfo.CurrentCulture);
+                            options.EnsureCleanSession = Convert.ToBoolean(GlobalSetting.Config.InternetExplorerPreferences[i], CultureInfo.CurrentCulture);
                             break;
 
                         case "IgnoreZoomLevel":
-                            options.IgnoreZoomLevel = Convert.ToBoolean(GlobalSettings.Config.InternetExplorerPreferences[i], CultureInfo.CurrentCulture);
+                            options.IgnoreZoomLevel = Convert.ToBoolean(GlobalSetting.Config.InternetExplorerPreferences[i], CultureInfo.CurrentCulture);
                             break;
                     }
                 }
@@ -254,9 +262,21 @@ namespace AutomationTest.UITesting.Controls
         /// <returns></returns>
         public static HtmlDriverContext CreateInstance(BrowserType browser)
         {
-            LogUtil.Trace("Start " + browser + " driver...");
+            Log.Trace("Start " + browser + " driver......");
             driverContext = new HtmlDriverContext(browser);
-            LogUtil.Trace(driverContext.driver + " started!");
+            Log.Trace(driverContext.driver + " started!");
+
+            return driverContext;
+        }
+
+        /// <summary>
+        /// Get instance from existing driver.
+        /// </summary>
+        /// <param name="driver"></param>
+        /// <returns></returns>
+        public static HtmlDriverContext GetInstance(IWebDriver driver)
+        {
+            driverContext = new HtmlDriverContext(driver);
 
             return driverContext;
         }
@@ -315,7 +335,7 @@ namespace AutomationTest.UITesting.Controls
         /// </summary>
         /// <param name="locator"></param>
         /// <returns></returns>
-        protected IWebElement FindElement(ILocator locator)
+        public IWebElement FindElement(ILocator locator)
         {
             WaitForExist(locator, waitTimeout);
             return this.Driver.FindElement(@locator.ToBy());
@@ -441,46 +461,51 @@ namespace AutomationTest.UITesting.Controls
         }
 
         /// <summary>
-        /// Maximize window.
-        /// </summary>
-        protected void Maximize()
-        {
-            this.Driver.Manage().Window.Maximize();
-        }
-
-        /// <summary>
         /// Set application active before interaction.
         /// </summary>
-        protected virtual void SetActive()
+        public virtual void SetActive()
         { 
         }
 
         protected virtual void SetWindowActive(string windowName)
         {
+            Log.Trace("Switch to window =>" + windowName);
+            IList<string> windows = this.Driver.WindowHandles;
+            Log.Trace("Active windows: " + windows.ToList());
+            foreach (string window in windows)
+            {
+                if (window == windowName)
+                {
+                    Log.Trace("Switch to window =>" + window);
+                    this.Driver.SwitchTo().Window(window);
+                }
+            }
             this.Driver.SwitchTo().Window(windowName);
         }
 
-        protected virtual void SetFrameActive()
+        protected void SwitchToDefaultContent()
         {
             this.Driver.SwitchTo().DefaultContent();
         }
 
-        protected virtual void SetFrameActive(string frameName)
+        protected void SwitchToFrame(string frameName)
         {
             this.Driver.SwitchTo().Frame(frameName);
         }
 
-        protected virtual void GoToUrl(string url)
+        protected void GoToUrl(string url)
         {
+            Log.Trace("Go to url =>" + url);
             this.Driver.Navigate().GoToUrl(url);
         }
 
         /// <summary>
         /// Take screenshot during test case execution or done.
         /// </summary>
-        public static void TakeScreenshot()
+        public static void TakeScreenshot(string fileName)
         {
-            ((ITakesScreenshot)driverContext.Driver).GetScreenshot();
+            Screenshot screenshot = ((ITakesScreenshot)driverContext.Driver).GetScreenshot();
+            screenshot.SaveAsFile(fileName, ScreenshotImageFormat.Jpeg);
         }       
 
         private T SetDriverOptions<T>(T options)

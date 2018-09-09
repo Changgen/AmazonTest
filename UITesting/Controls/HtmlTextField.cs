@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutomationTest.Generic.Utils;
 
 namespace AutomationTest.UITesting.Controls
 {
@@ -33,6 +34,7 @@ namespace AutomationTest.UITesting.Controls
         /// <param name="text"></param>
         public void InputText(string text)
         {
+            Log.Trace("Input >>" + text + " to element<" + this.Locator.Value+">");
             ClearContent();
             SendKeys(text);
         }

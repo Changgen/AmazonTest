@@ -21,6 +21,7 @@ namespace AutomationTest.UITesting.Controls
 
         bool Exist();
         bool Exist(int timeout);
+        T FindElementEx(ILocator locator);
 
     }
 }

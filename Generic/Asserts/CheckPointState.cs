@@ -29,7 +29,7 @@ namespace AutomationTest.Generic.Asserts
             }
             catch (Exception ex)
             {
-                LogUtil.WriteInformation(ex.ToString());
+                Log.Trace(ex.ToString());
                 this.CatchErrors(ex);
                 //Assert.Fail();
                 return false;
@@ -38,6 +38,7 @@ namespace AutomationTest.Generic.Asserts
 
         public bool Check(T condition)
         {
+            Log.Trace("====Check " + condition.ToString());
             try
             {
                 this.CheckCondition(condition);
@@ -45,7 +46,7 @@ namespace AutomationTest.Generic.Asserts
             }
             catch (Exception ex)
             {
-                LogUtil.WriteInformation(ex.ToString());
+                Log.Trace(ex.ToString());
                 this.CatchErrors(ex);
                 Verify.Errors.Add(ex);
                 return false;

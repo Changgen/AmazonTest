@@ -3,6 +3,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
     <StartProgram>C:\Program Files\NUnit 2.6.4\bin\nunit.exe</StartProgram>
-    <StartArguments>"C:\Users\pengc\Desktop\AmazonTest\BaiduTest\bin\Debug\BaiduTest.dll"</StartArguments>
+    <StartArguments>"C:\Users\pengc\Documents\Git\AmazonTest\BaiduTest\bin\Debug\BaiduTest.dll"</StartArguments>
   </PropertyGroup>
 </Project>

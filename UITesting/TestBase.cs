@@ -8,7 +8,6 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AutomationTest.Generic.Configuration;
 using AutomationTest.Generic.Utils;
 using AutomationTest.UITesting.Controls;
@@ -62,7 +61,7 @@ namespace AutomationTest.UITesting
         {
             get
             {
-                return GlobalSettings.Config.DataInDirectory;
+                return GlobalSetting.Config.DataInDirectory;
             }
         }
 
@@ -73,7 +72,7 @@ namespace AutomationTest.UITesting
         {
             get
             {
-                return GlobalSettings.Config.TempDirectory;
+                return GlobalSetting.Config.TempDirectory;
             }
         }
 
@@ -84,7 +83,7 @@ namespace AutomationTest.UITesting
         {
             get
             {
-                return GlobalSettings.Config.TestResultDirectory;
+                return Path.Combine(GlobalSetting.Config.TestResultDirectory, this.TestName);
             }
         }
 
@@ -134,14 +133,15 @@ namespace AutomationTest.UITesting
         /// </summary>
         protected virtual void TestEnvironmentInitialize()
         {
+            Log.GetInstance(this.TestResultsDirectory, this.TestName);
+            Log.Started(this.TestName);
             OS.DisableTurnOffDisplay();
             OS.DisableWindowsUpdate();
             OS.DisableSleep();
             KillReleatedProcess();
             DeleteTempFiles();
             CreateOutputFolder();
-            CopyFilesToTempFolder("Test");
-            InitializeWebDriver();     
+            CopyFilesToTempFolder("Test");  
         }
 
         /// <summary>
@@ -149,6 +149,11 @@ namespace AutomationTest.UITesting
         /// </summary>
         protected virtual void TestEnvironmentCleanup()
         {
+            if (Verify.Errors.Count > 0)
+            {
+                Assert.Fail();
+            }
+            Log.Ended(this.TestName);
         }
 
         protected void Steps(int stepNo, string description)
@@ -160,10 +165,6 @@ namespace AutomationTest.UITesting
         protected void ExecuteTest(Action action)
         { }
 
-        public void InitializeWebDriver()
-        {
-            HtmlDriverContext.CreateInstance(GlobalSettings.Config.Browser);
-        }
         /// <summary>
         /// Kill all releated processes.
         /// </summary>
@@ -184,7 +185,7 @@ namespace AutomationTest.UITesting
         /// </summary>
         private void DeleteTempFiles()
         {
-            DirectoryUtil.EmptyFolder(GlobalSettings.Config.TempDirectory);
+            DirectoryUtil.EmptyFolder(GlobalSetting.Config.TempDirectory);
         }
 
         /// <summary>
@@ -192,7 +193,7 @@ namespace AutomationTest.UITesting
         /// </summary>
         private void CreateOutputFolder()
         {
-            string outputDirectory = Path.Combine(GlobalSettings.Config.TestResultDirectory, this.TestName);
+            string outputDirectory = Path.Combine(GlobalSetting.Config.TestResultDirectory, this.TestName);
             DirectoryUtil.CreateFolder(outputDirectory, false);
         }
 
@@ -202,8 +203,8 @@ namespace AutomationTest.UITesting
         /// <param name="testModel"></param>
         protected virtual void CopyFilesToTempFolder(string testModel)
         {
-            string sourceDir = Path.Combine(GlobalSettings.Config.DataInDirectory, testModel);
-            FileUtil.CopyFiles(sourceDir, GlobalSettings.Config.TempDirectory);
+            string sourceDir = Path.Combine(GlobalSetting.Config.DataInDirectory, testModel);
+            FileUtil.CopyFiles(sourceDir, GlobalSetting.Config.TempDirectory);
         }
 
 

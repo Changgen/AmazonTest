@@ -51,7 +51,7 @@ namespace AutomationTest.Generic.Utils
         /// <param name="path"></param>
         public static void EmptyFolder(string path)
         {
-            LogUtil.Trace("Empty folder =>" + path);
+            Log.Trace("Empty folder =>" + path);
             foreach (string file in Directory.GetFileSystemEntries(path))
             {
                 if (File.Exists(file))
@@ -67,7 +67,7 @@ namespace AutomationTest.Generic.Utils
                         {
                             EmptyFolder(directoryInfo.FullName);
                         }
-                        LogUtil.Trace("Delete directory =>" + file);
+                        Log.Trace("Delete directory =>" + file);
                         Directory.Delete(file, true);
                     }
                     catch (Exception ex)

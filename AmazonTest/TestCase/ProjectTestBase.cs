@@ -13,26 +13,21 @@ namespace AmazonTest.TestCase
     [TestClass]
     public class ProjectTestBase : TestBase
     {
-        //public TestContext TestContext { get; set; }
-
         [TestInitialize]
         public void Initialize()
         {
-            //TestName = this.TestContext.TestName;
-            //Console.WriteLine(TestName);
             TestEnvironmentInitialize();
         }
 
         [TestCleanup]
         public void Cleanup()
         {
-            //TestOutcome = this.TestContext.CurrentTestOutcome;
             TestEnvironmentCleanup();
         }
 
         protected virtual void CreateDSNFile()
         {
-            string dsnFile = Path.Combine(GlobalSettings.Config.TempDirectory, "Demo.dsn");
+            string dsnFile = Path.Combine(GlobalSetting.Config.TempDirectory, "Demo.dsn");
             FileUtil.CreateFile(dsnFile);
             FileUtil.AppendText(dsnFile, "124", true);
             FileUtil.AppendText(dsnFile, "222", true);

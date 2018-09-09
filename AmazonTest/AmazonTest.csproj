@@ -47,7 +47,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Objects\AccountListsDiv.cs" />
     <Compile Include="Objects\HomePage.cs" />
+    <Compile Include="Objects\SellPage.cs" />
+    <Compile Include="Objects\SignInPage.cs" />
     <Compile Include="TestCase\ProjectTestBase.cs" />
     <Compile Include="TestCase\SmokeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

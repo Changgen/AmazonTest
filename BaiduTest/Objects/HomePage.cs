@@ -11,7 +11,7 @@ namespace BaiduTest.Objects
 {
     public class HomePage : ApplicationBase 
     {
-        private readonly static string homepageUrl = GlobalSettings.Config.Url;
+        private readonly static string homepageUrl = GlobalSetting.Config.Url;
 
         public HomePage()
             : base(homepageUrl)

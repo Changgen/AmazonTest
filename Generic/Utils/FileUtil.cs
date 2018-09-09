@@ -26,7 +26,7 @@ namespace AutomationTest.Generic.Utils
         /// <param name="path"></param>
         public static void DeleteFile(string path)
         {
-            LogUtil.Trace("Delete file =>" + path);
+            Log.Trace("Delete file =>" + path);
             try
             {
                 FileInfo fileInfo = new FileInfo(path);
@@ -56,7 +56,7 @@ namespace AutomationTest.Generic.Utils
         /// <param name="destDir"></param>
         public static void CopyFiles(string sourceDir, string destDir)
         {
-            LogUtil.Trace("Copy files from " + sourceDir + " to " + destDir);
+            Log.Trace("Copy files from " + sourceDir + " to " + destDir);
             if (!Directory.Exists(destDir))
             {
                 DirectoryUtil.CreateFolder(destDir);
@@ -97,7 +97,7 @@ namespace AutomationTest.Generic.Utils
         /// <param name="overwrite"></param>
         public static void CopyFile(string sourceFileName, string destFileName, bool overwrite=true)
         {
-            LogUtil.Trace("Copy file from " + sourceFileName + " to " + destFileName);
+            Log.Trace("Copy file from " + sourceFileName + " to " + destFileName);
             try
             {
                 File.Copy(sourceFileName, destFileName, overwrite);  
@@ -166,7 +166,6 @@ namespace AutomationTest.Generic.Utils
 
             fileStream.Flush();
             fileStream.Close();
-            fileStream.Dispose();
         }
 
         /// <summary>
@@ -186,7 +185,6 @@ namespace AutomationTest.Generic.Utils
 
             fileStream.Flush();
             fileStream.Close();
-            fileStream.Dispose();
             return contents;
         }
 

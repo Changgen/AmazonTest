@@ -6,17 +6,19 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Drawing;
 using OpenQA.Selenium;
+using AutomationTest.UITesting.Extensions;
 
 namespace AutomationTest.UITesting.Controls
 {
     public class HtmlControl : HtmlDriverContext, IControl<IWebElement> 
     {
+        private IControl<IWebElement> parent;
         private ILocator locator;
 
         public HtmlControl()
         {
-            this.waitTimeout = GlobalSettings.Config.ControlActiveTimeout;
-            SetFrameActive();
+            this.waitTimeout = GlobalSetting.Config.ControlActiveTimeout;
+            SwitchToDefaultContent();
         }
 
         public HtmlControl(ILocator locator) 
@@ -28,7 +30,13 @@ namespace AutomationTest.UITesting.Controls
         public HtmlControl(ILocator locator, string frame)
             : this(locator)
         {
-            SetFrameActive(frame);
+            SwitchToFrame(frame);
+        }
+
+        public HtmlControl(IControl<IWebElement> parent, ILocator locator)
+            : this(locator)
+        {
+            this.parent = parent;
         }
 
         /// <summary>
@@ -47,7 +55,17 @@ namespace AutomationTest.UITesting.Controls
         /// </summary>
         public IWebElement Element
         {
-            get { return FindElement(locator); }
+            get 
+            {
+                if (parent == null)
+                {
+                    return FindElement(locator);
+                }
+                else
+                {
+                    return parent.FindElementEx(locator);
+                }
+            }
         }
 
         /// <summary>
@@ -137,7 +155,7 @@ namespace AutomationTest.UITesting.Controls
         /// <returns></returns>
         public bool Exist()
         {
-            return false;
+            return Exist(this, this.waitTimeout);
         }
 
         /// <summary>
@@ -168,6 +186,16 @@ namespace AutomationTest.UITesting.Controls
         {
             this.Element.SendKeys(text);
             Thread.Sleep(1000);
+        }
+
+        /// <summary>
+        /// Find child element under current control.
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <returns></returns>
+        public IWebElement FindElementEx(ILocator locator)
+        {
+            return Wait.Until(parent => Element.FindElement(locator.ToBy()));
         }
     }
 }

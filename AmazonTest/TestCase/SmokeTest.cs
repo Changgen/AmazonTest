@@ -60,9 +60,29 @@ namespace AmazonTest.TestCase
         {
             Steps(1, "Go to Amazon home page");
             HomePage homepage = new HomePage();
+            //homepage.ExpandDepartments();
+            homepage.MoveMouseTo("//span[text()='Account & Lists']");
+            HtmlDriverContext.TakeScreenshot(this.TestResultsDirectory+"\\Exception");
+
+            homepage.ExpandTryPrime();
+            homepage.ExpandAccountLists();
+            homepage.DivAccountLists.SpnYourAccount.Click();
+            //homepage.MoveMouseTo("//span[text()='Departments']");
+
+            SignInPage signinPage = homepage.GoToSignInPage();
+
+            signinPage.SignIn("changgen.peng@yahoo.com", "123");
+
+            Verify.IsTrue(signinPage.SpnProblemExistWarning.Exist());
+            Verify.IsTrue(signinPage.SpnNotFindAccountError.Exist());
+
+            signinPage.CreateAmazonAccount("Paul34", "changgen.peng@yahoo.com", "123");
+
+            signinPage.GoBackToHome();
             homepage.TxtSearch.InputText("Clark");
             homepage.BtnGo.Click();
             homepage.CmbSortBy.Select("Newest Arrivals");
+            
             Verify.AreEqual(1, 1);
             Verify.AreEqual(1, 1);
             Verify.IsTrue(true);

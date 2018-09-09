@@ -10,3 +10,7 @@ C:\Users\pengc\Documents\Visual Studio 2012\Projects\AmazonTest\Generic\bin\Debu
 C:\Users\pengc\Documents\Visual Studio 2012\Projects\AmazonTest\Generic\bin\Debug\Generic.pdb
 C:\Users\pengc\Documents\Visual Studio 2012\Projects\AmazonTest\Generic\obj\Debug\Generic.dll
 C:\Users\pengc\Documents\Visual Studio 2012\Projects\AmazonTest\Generic\obj\Debug\Generic.pdb
+C:\Users\pengc\Documents\Git\AmazonTest\Generic\bin\Debug\Generic.dll
+C:\Users\pengc\Documents\Git\AmazonTest\Generic\bin\Debug\Generic.pdb
+C:\Users\pengc\Documents\Git\AmazonTest\Generic\obj\Debug\Generic.dll
+C:\Users\pengc\Documents\Git\AmazonTest\Generic\obj\Debug\Generic.pdb

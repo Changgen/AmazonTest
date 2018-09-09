@@ -13,7 +13,7 @@ using AutomationTest.Generic;
 
 namespace AutomationTest.UITesting
 {
-    public sealed class GlobalSettings
+    public sealed class GlobalSetting
     {
         //Project
         private readonly string project = ConfigurationManager.AppSettings["Project"];
@@ -39,16 +39,16 @@ namespace AutomationTest.UITesting
 
         private readonly NameValueCollection internetExplorerPreferences = ConfigurationManager.GetSection("InternetExplorerPreferences") as NameValueCollection;
 
-        public GlobalSettings()
+        public GlobalSetting()
         { 
         }
 
 
-        public static GlobalSettings Config
+        public static GlobalSetting Config
         {
             get
             {
-                return new GlobalSettings();
+                return new GlobalSetting();
             }
  
         }
