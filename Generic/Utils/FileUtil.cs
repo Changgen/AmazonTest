@@ -15,9 +15,18 @@ namespace AutomationTest.Generic.Utils
         /// <param name="path"></param>
         public static void CreateFile(string path)
         {
-            FileStream fileStream = File.Create(path);
-            fileStream.Close();
-            fileStream.Dispose();
+            try
+            {
+                FileStream fileStream = File.Create(path);
+                fileStream.Close();
+                fileStream.Dispose();
+            }
+            catch (DirectoryNotFoundException)
+            {
+                string directory = path.Substring(0, path.LastIndexOf("\\") + 1);
+                DirectoryUtil.CreateFolder(directory);
+                CreateFile(path);
+            }
         }
 
         /// <summary>
@@ -115,6 +124,11 @@ namespace AutomationTest.Generic.Utils
         /// <param name="contents"></param>
         public static void AppendText(string path, string contents, bool useFileStream = false)
         {
+            if (!File.Exists(path))
+            {
+                CreateFile(path);
+            }
+
             if (useFileStream == false)
             {
                 File.AppendAllText(path, contents + "\r\n");

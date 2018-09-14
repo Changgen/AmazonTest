@@ -11,16 +11,3 @@ C:\Users\pengc\Documents\Visual Studio 2012\Projects\AmazonTest\UITesting\bin\De
 C:\Users\pengc\Documents\Visual Studio 2012\Projects\AmazonTest\UITesting\obj\Debug\UITesting.csprojResolveAssemblyReference.cache
 C:\Users\pengc\Documents\Visual Studio 2012\Projects\AmazonTest\UITesting\obj\Debug\UITesting.dll
 C:\Users\pengc\Documents\Visual Studio 2012\Projects\AmazonTest\UITesting\obj\Debug\UITesting.pdb
-C:\Users\pengc\Documents\Git\AmazonTest\UITesting\obj\Debug\UITesting.csprojResolveAssemblyReference.cache
-C:\Users\pengc\Documents\Git\AmazonTest\UITesting\bin\Debug\UITesting.dll
-C:\Users\pengc\Documents\Git\AmazonTest\UITesting\bin\Debug\UITesting.pdb
-C:\Users\pengc\Documents\Git\AmazonTest\UITesting\bin\Debug\Generic.dll
-C:\Users\pengc\Documents\Git\AmazonTest\UITesting\bin\Debug\nunit.framework.dll
-C:\Users\pengc\Documents\Git\AmazonTest\UITesting\bin\Debug\WebDriver.dll
-C:\Users\pengc\Documents\Git\AmazonTest\UITesting\bin\Debug\WebDriver.Support.dll
-C:\Users\pengc\Documents\Git\AmazonTest\UITesting\bin\Debug\Generic.pdb
-C:\Users\pengc\Documents\Git\AmazonTest\UITesting\bin\Debug\nunit.framework.xml
-C:\Users\pengc\Documents\Git\AmazonTest\UITesting\bin\Debug\WebDriver.xml
-C:\Users\pengc\Documents\Git\AmazonTest\UITesting\bin\Debug\WebDriver.Support.xml
-C:\Users\pengc\Documents\Git\AmazonTest\UITesting\obj\Debug\UITesting.dll
-C:\Users\pengc\Documents\Git\AmazonTest\UITesting\obj\Debug\UITesting.pdb

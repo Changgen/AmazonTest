@@ -66,6 +66,7 @@ namespace AmazonTest.TestCase
 
             homepage.ExpandTryPrime();
             homepage.ExpandAccountLists();
+            homepage.DivAccountLists.TextClick("Your Account");
             homepage.DivAccountLists.SpnYourAccount.Click();
             //homepage.MoveMouseTo("//span[text()='Departments']");
 

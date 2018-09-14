@@ -179,6 +179,60 @@ namespace AutomationTest.UITesting.Controls
         }
 
         /// <summary>
+        /// Click on this control.
+        /// </summary>
+        public void Click()
+        {
+            try
+            {
+                this.Element.Click();
+            }
+            catch
+            {
+                Wait.Until(() => this.Element.Click());
+            }
+
+            Thread.Sleep(1000);
+        }
+
+        /// <summary>
+        /// Click on specified location of current control or element.
+        /// </summary>
+        /// <param name="coordinate"></param>
+        public void Click(int xCoordinate, int yCoordinate)
+        {
+            ClickOnElement(this, xCoordinate, yCoordinate);
+        }
+
+        /// <summary>
+        /// Double click on current element.
+        /// </summary>
+        public void DoubleClick()
+        {
+            DoubleClickOnElement(this);
+        }
+
+        /// <summary>
+        /// Double click on specifed coordinate of current element.
+        /// </summary>
+        /// <param name="coordinate"></param>
+        public void DoubleClick(int xCoordinate, int yCoordinatee)
+        {
+            DoubleClickOnElement(this, xCoordinate, xCoordinate);
+        }
+
+        /// <summary>
+        /// Click on specified text.
+        /// </summary>
+        /// <param name="text"></param>
+        public override void TextClick(string text)
+        {
+            ILocator locator = new Locator(".//*[text()='" + text + "']");
+            IWebElement element = FindElementEx(locator);
+            ClickOnElement(element);
+        }
+
+        /// <summary>
         /// Sendkeys to current element.
         /// </summary>
         /// <param name="text"></param>

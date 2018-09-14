@@ -55,21 +55,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationBase.cs" />
-    <Compile Include="Controls\HtmlComboBox.cs" />
-    <Compile Include="Controls\HtmlDiv.cs" />
-    <Compile Include="Controls\HtmlSpan.cs" />
+    <Compile Include="Controls\HtmlCell.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlCheckBox.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlComboBox.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlDialog.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlDiv.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlSpan.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlTable.cs" />
+    <Compile Include="Controls\HtmlListBox.cs" />
+    <Compile Include="Controls\HtmlRow.cs" />
+    <Compile Include="Controls\HtmlSearchBox.cs" />
     <Compile Include="Controls\IComboBox.cs" />
+    <Compile Include="Controls\ITable.cs" />
     <Compile Include="Events\CapabilitiesSetEventArgs.cs" />
     <Compile Include="Controls\Drivers\HtmlDriverContext.cs" />
     <Compile Include="Controls\Drivers\IDriverContext.cs" />
     <Compile Include="Controls\Drivers\WinDriverContext.cs" />
-    <Compile Include="Controls\HtmlButton.cs" />
-    <Compile Include="Controls\HtmlControl.cs" />
-    <Compile Include="Controls\HtmlCustom.cs" />
-    <Compile Include="Controls\HtmlHyperLink.cs" />
-    <Compile Include="Controls\HtmlImage.cs" />
-    <Compile Include="Controls\HtmlScrollBar.cs" />
-    <Compile Include="Controls\HtmlTextField.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlButton.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlControl.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlCustom.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlHyperLink.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlImage.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlScrollBar.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlTextField.cs" />
     <Compile Include="Controls\IApplication.cs" />
     <Compile Include="Controls\IButton.cs" />
     <Compile Include="Controls\IControl.cs" />
@@ -84,12 +92,14 @@
     <Compile Include="Controls\Locator.cs" />
     <Compile Include="Events\DriverOptionsSetEventArgs.cs" />
     <Compile Include="Extensions\LocatorExtension.cs" />
+    <Compile Include="Extensions\WebDriverWaitExtensions.cs" />
     <Compile Include="Extensions\WebElementExtensions.cs" />
     <Compile Include="GlobalSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controls\WinControl\" />
     <Folder Include="JavaScripts\" />
   </ItemGroup>
   <ItemGroup>

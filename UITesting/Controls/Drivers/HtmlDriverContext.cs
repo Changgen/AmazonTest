@@ -353,6 +353,16 @@ namespace AutomationTest.UITesting.Controls
         }
 
         /// <summary>
+        /// Click on web element.
+        /// </summary>
+        /// <param name="element"></param>
+        protected virtual void ClickOnElement(IWebElement element)
+        {
+            this.Actions.Click(element).Build().Perform();
+            Thread.Sleep(500);
+        }
+
+        /// <summary>
         /// Click on specified control or element.
         /// </summary>
         /// <param name="control"></param>
@@ -419,6 +429,17 @@ namespace AutomationTest.UITesting.Controls
             MoveMouseToElementByOffset(control, xOffset, yOffset);
             this.Actions.ContextClick(control.Element).Build().Perform();
             Thread.Sleep(500);
+        }
+
+        /// <summary>
+        /// Click on specified text area.
+        /// </summary>
+        /// <param name="text"></param>
+        public virtual void TextClick(string text)
+        {
+            ILocator locator = new Locator("//*[text()='" + text + "']");
+            IControl<IWebElement> control = new HtmlControl(locator);
+            ClickOnElement(control);
         }
 
         /// <summary>
