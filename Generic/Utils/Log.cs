@@ -33,6 +33,30 @@ namespace AutomationTest.Generic.Utils
             return log;
         }
 
+        public static void Pass(string message)
+        {
+            message = "XXX " + message;
+            Trace(message);
+        }
+
+        public static void Fail(string message)
+        {
+            message = "XXX " + message;
+            Trace(message);
+        }
+
+        public static void Warning(string message)
+        {
+            message = "XXX " + message;
+            Trace(message);
+        }
+
+        public static void Error(string message)
+        {
+            message = "XXX " + message;
+            Trace(message);
+        }
+
         public static void Trace(string message)
         {
             WriteInformation(message);

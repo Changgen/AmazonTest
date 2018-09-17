@@ -27,6 +27,28 @@ namespace AutomationTest.UITesting
 
     public abstract class TestBase
     {
+        public DriverContext DriverContext
+        {
+            get
+            {
+                return new HtmlDriverContextFactory().CreateDriverContext();
+            }
+        }
+
+        public DriverContext ScreenshotDriver
+        {
+            get
+            {
+                return new HtmlDriverContextFactory().CreateDriverContext();
+                //return HtmlDriverContext.GetInstance();
+            }
+        }
+
+        public Action TakeScreenshot(string screenshotName)
+        {
+            return () => ScreenshotDriver.TakeScreenshot(Path.Combine(this.TestResultsDirectory, screenshotName));
+        }
+
 #if MSUnit
         /// <summary>
         /// Get test context using MS unit test framework.

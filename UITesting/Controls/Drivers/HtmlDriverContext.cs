@@ -22,7 +22,7 @@ namespace AutomationTest.UITesting.Controls
     /// <summary>
     /// Provide backend method to find element and operate element on web using web driver.
     /// </summary>
-    public class HtmlDriverContext
+    public class HtmlDriverContext : DriverContext, ITakeSnapshot 
     {
         /// <summary>
         /// Timeout of waiting element exist.
@@ -281,6 +281,11 @@ namespace AutomationTest.UITesting.Controls
             return driverContext;
         }
 
+        public static HtmlDriverContext GetInstance()
+        {
+            return driverContext;
+        }
+
         /// <summary>
         /// Wait until element exist, exception will be thrown if parameter throwException is true.
         /// </summary>
@@ -523,11 +528,20 @@ namespace AutomationTest.UITesting.Controls
         /// <summary>
         /// Take screenshot during test case execution or done.
         /// </summary>
-        public static void TakeScreenshot(string fileName)
+        public override void TakeScreenshot(string fileName)
         {
-            Screenshot screenshot = ((ITakesScreenshot)driverContext.Driver).GetScreenshot();
+            Screenshot screenshot = ((ITakesScreenshot)this.Driver).GetScreenshot();
             screenshot.SaveAsFile(fileName, ScreenshotImageFormat.Jpeg);
-        }       
+        }
+
+        public override Action TakeSnapshot(string fileName)
+        {
+            return () =>
+            {
+                Screenshot screenshot = ((ITakesScreenshot)this.Driver).GetScreenshot();
+                screenshot.SaveAsFile(fileName, ScreenshotImageFormat.Jpeg);
+            };
+        }
 
         private T SetDriverOptions<T>(T options)
             where T : DriverOptions

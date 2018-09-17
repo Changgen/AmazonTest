@@ -62,7 +62,8 @@ namespace AmazonTest.TestCase
             HomePage homepage = new HomePage();
             //homepage.ExpandDepartments();
             homepage.MoveMouseTo("//span[text()='Account & Lists']");
-            HtmlDriverContext.TakeScreenshot(this.TestResultsDirectory+"\\Exception");
+            Verify.That(() => Assert.AreEqual(1, 2), "Verify 1 = 2 ", DriverContext.TakeSnapshot("Exception"));
+            Verify.That(() => Assert.AreEqual(1, 2), "Verify 1 = 2", TakeScreenshot("Exception2"));
 
             homepage.ExpandTryPrime();
             homepage.ExpandAccountLists();

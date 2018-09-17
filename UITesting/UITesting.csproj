@@ -55,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationBase.cs" />
+    <Compile Include="Controls\Drivers\DriverContext.cs" />
+    <Compile Include="Controls\Drivers\HtmlDriverContextFactory.cs" />
+    <Compile Include="Controls\Drivers\IDriverContextFactory.cs" />
     <Compile Include="Controls\HtmlCell.cs" />
     <Compile Include="Controls\HtmlControl\HtmlCheckBox.cs" />
     <Compile Include="Controls\HtmlControl\HtmlComboBox.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="Controls\HtmlSearchBox.cs" />
     <Compile Include="Controls\IComboBox.cs" />
     <Compile Include="Controls\ITable.cs" />
+    <Compile Include="Controls\ITakeSnapshot.cs" />
     <Compile Include="Events\CapabilitiesSetEventArgs.cs" />
     <Compile Include="Controls\Drivers\HtmlDriverContext.cs" />
     <Compile Include="Controls\Drivers\IDriverContext.cs" />

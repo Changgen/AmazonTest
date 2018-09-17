@@ -1,0 +1,55 @@
+*********************************************************************************************************************************
+Test case: VSTS000003
+Log file: C:\Users\pengc\Documents\Git\AmazonTest\TestResults\VSTS000003\VSTS000003.log
+Start time: 9/15/2018 4:47:02 PM
+Log started>>>
+9/15/2018 4:47:02 PM Empty folder =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp
+9/15/2018 4:47:02 PM Empty folder =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder
+9/15/2018 4:47:02 PM Empty folder =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder\New folder
+9/15/2018 4:47:02 PM Delete file =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder\New folder\New Text Document.txt
+9/15/2018 4:47:02 PM Delete directory =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder\New folder
+9/15/2018 4:47:02 PM Delete file =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder\New Text Document.txt
+9/15/2018 4:47:02 PM Delete directory =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder
+9/15/2018 4:47:02 PM Delete file =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New Microsoft Excel Worksheet.xlsx
+9/15/2018 4:47:02 PM Delete file =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New Text Document.txt
+9/15/2018 4:47:02 PM Copy files from C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataIn\Test to C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp
+9/15/2018 4:47:02 PM Copy files from C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataIn\Test\New folder to C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder
+9/15/2018 4:47:02 PM Copy files from C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataIn\Test\New folder\New folder to C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder\New folder
+9/15/2018 4:47:02 PM Copy file from C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataIn\Test\New folder\New folder\New Text Document.txt to C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder\New folder\New Text Document.txt
+9/15/2018 4:47:02 PM Copy file from C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataIn\Test\New folder\New Text Document.txt to C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder\New Text Document.txt
+9/15/2018 4:47:02 PM Copy file from C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataIn\Test\New Microsoft Excel Worksheet.xlsx to C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New Microsoft Excel Worksheet.xlsx
+9/15/2018 4:47:02 PM Copy file from C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataIn\Test\New Text Document.txt to C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New Text Document.txt
+9/15/2018 4:53:25 PM Start Chrome driver......
+9/15/2018 4:53:30 PM OpenQA.Selenium.Chrome.ChromeDriver started!
+9/15/2018 4:53:30 PM Current driver =>OpenQA.Selenium.Chrome.ChromeDriver
+9/15/2018 4:53:30 PM Current WindowHandle =>CDwindow-F1A418C1291D2178443E35242AA4679B
+9/15/2018 4:53:30 PM Go to url =>https://www.amazon.com/
+9/15/2018 4:58:00 PM Verify 1 = 2 
+9/15/2018 4:58:40 PM Verify 1 = 2
+*********************************************************************************************************************************
+Test case: VSTS000003
+Log file: C:\Users\pengc\Documents\Git\AmazonTest\TestResults\VSTS000003\VSTS000003.log
+Start time: 9/15/2018 6:21:21 PM
+Log started>>>
+9/15/2018 6:21:21 PM Empty folder =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp
+9/15/2018 6:21:21 PM Empty folder =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder
+9/15/2018 6:21:21 PM Empty folder =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder\New folder
+9/15/2018 6:21:21 PM Delete file =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder\New folder\New Text Document.txt
+9/15/2018 6:21:21 PM Delete directory =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder\New folder
+9/15/2018 6:21:21 PM Delete file =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder\New Text Document.txt
+9/15/2018 6:21:21 PM Delete directory =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder
+9/15/2018 6:21:21 PM Delete file =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New Microsoft Excel Worksheet.xlsx
+9/15/2018 6:21:21 PM Delete file =>C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New Text Document.txt
+9/15/2018 6:21:21 PM Copy files from C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataIn\Test to C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp
+9/15/2018 6:21:21 PM Copy files from C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataIn\Test\New folder to C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder
+9/15/2018 6:21:21 PM Copy files from C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataIn\Test\New folder\New folder to C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder\New folder
+9/15/2018 6:21:21 PM Copy file from C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataIn\Test\New folder\New folder\New Text Document.txt to C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder\New folder\New Text Document.txt
+9/15/2018 6:21:21 PM Copy file from C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataIn\Test\New folder\New Text Document.txt to C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New folder\New Text Document.txt
+9/15/2018 6:21:21 PM Copy file from C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataIn\Test\New Microsoft Excel Worksheet.xlsx to C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New Microsoft Excel Worksheet.xlsx
+9/15/2018 6:21:21 PM Copy file from C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataIn\Test\New Text Document.txt to C:\Users\pengc\Documents\Git\AmazonTest\AmazonTest\Data\DataTemp\New Text Document.txt
+9/15/2018 6:21:41 PM Start Chrome driver......
+9/15/2018 6:21:45 PM OpenQA.Selenium.Chrome.ChromeDriver started!
+9/15/2018 6:21:49 PM Current driver =>OpenQA.Selenium.Chrome.ChromeDriver
+9/15/2018 6:21:50 PM Current WindowHandle =>CDwindow-8075E0DDDBDCE2231F13976BB7A11A23
+9/15/2018 6:21:51 PM Go to url =>https://www.amazon.com/
+9/15/2018 6:23:18 PM Verify 1 = 2 
